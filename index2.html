@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma & Grano | Cafetería de Especialidad</title>
+    <style>
+        /* Estilos Globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Garamond', 'Georgia', serif;
+        }
+
+        body {
+            background-color: #fdfbf7;
+            color: #4a3b32;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        /* Barra de Navegación */
+        header {
+            background-color: #fdfbf7;
+            border-bottom: 1px solid #e8dec9;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #c48b59;
+        }
+
+        .menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu a:hover {
+            color: #c48b59;
+            transition: 0.3s;
+        }
+
+        /* Sección Héroe */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-family: sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-reserva {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 0.8rem 2.5rem;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.4s;
+        }
+
+        .btn-reserva:hover {
+            background-color: #ffffff;
+            color: #4a3b32;
+        }
+
+        /* Títulos de Sección */
+        .titulo-seccion {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        /* Sección Menú de la Cafetería */
+        .menu-seccion {
+            background-color: #f7f2e8;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .categoria-columna h3 {
+            font-size: 1.8rem;
+            border-bottom: 1px solid #c48b59;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+
+        .item-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+        }
+
+        .item-detalles {
+            max-width: 80%;
+        }
+
+        .item-nombre {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .item-descripcion {
+            font-size: 0.95rem;
+            color: #7a685c;
+            font-style: italic;
+            margin-top: 0.2rem;
+        }
+
+        .item-precio {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #c48b59;
+        }
+
+        /* Sección Información y Horarios */
+        .info-bloque {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background-color: #ffffff;
+            border: 1px solid #e8dec9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .info-col {
+            flex: 1;
+            min-width: 280px;
+            padding: 3rem;
+        }
+
+        .info-col:first-child {
+            border-right: 1px solid #e8dec9;
+        }
+
+        @media (max-width: 768px) {
+            .info-col:first-child {
+                border-right: none;
+                border-bottom: 1px solid #e8dec9;
+            }
+        }
+
+        .info-col h4 {
+            font-family: sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: #c48b59;
+        }
+
+        .info-col p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #4a3b32;
+            color: #fdfbf7;
+            text-align: center;
+            padding: 2.5rem 0;
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="nav-container">
+            <div class="logo"><a href="#">Aroma<span>&Grano</span></a></div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#menu">Nuestra Carta</a></li>
+                    <li><a href="#visitanos">Visítanos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <h1>Café recién tostado & repostería casera</h1>
+        <p>Un espacio tranquilo para los amantes del buen café</p>
+        <a href="#menu" class="btn-reserva">Ver la Carta</a>
+    </section>
+
+    <!-- Sección del Menú -->
+    <section class="menu-seccion" id="menu">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Nuestra Carta</h2>
+            
+            <div class="menu-grid">
+                <!-- Columna Cafés -->
+                <div class="categoria-columna">
+                    <h3>Cafés de Especialidad</h3>
+                    
+                    <div class="item-menu">
+                        <div class="item-detalles">
+                            <div class="item-nombre">Espresso Doble</div>
+                            <div class="item-descripcion">Extracción intensa de granos de origen único de Etiopía.</div>
+                        </div>
+                        <div class="item-precio">2.50€</div>
+                    </div>
+
+                    <div class="item-menu">
+                        <div class="item-detalles">
+                            <div class="item-nombre">Flat White</div>
+                            <div class="item-descripcion">Doble carga de espresso con una capa fina de leche emulsionada.</div>
+                        </div>
+                        <div class="item-precio">3.20€</div>
+                    </div>
+
+                    <div class="item-menu">
+                        <div class="item-detalles">
+                            <div class="item-nombre">Capuccino Vainilla</div>
+                            <div class="item-descripcion">Espresso, leche cremosa y un toque de sirope artesanal de vainilla.</div>
+                        </div>
+                        <div class="item-precio">3.60€</div>
+                    </div>
+                </div>
+
+                <!-- Columna Pastelería -->
+                <div class="categoria-columna">
+                    <h3>Pastelería Artesanal</h3>
+                    
+                    <div class="item-menu">
+                        <div class="item-detalles">
+                            <div class="item-nombre">Croissant de Mantequilla</div>
+                            <div class="item-descripcion">Hojaldrado tradicional, crujiente por fuera y tierno por dentro.</div>
+                        </div>
+                        <div class="item-precio">2.20€</div>
+                    </div>
+
+                    <div class="item-menu">
+                        <div class="item-detalles">
+                            <div class="item-nombre">Tarta de Queso Horneada</div>
+                            <div class="item-descripcion">Porción de tarta cremosa estilo San Sebastián con base de galleta.</div>
+                        </div>
+                        <div class="item-precio">4.50€</div>
+                    </div>
+
+                    <div class="item-menu">
+                        <div class="item-detalles">
+                            <div class="item-nombre">Roll de Canela</div>
+                            <div class="item-descripcion">Glaseado clásico con un toque ligero de cardamomo.</div>
+                        </div>
+                        <div class="item-precio">3.00€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Ubicación y Contacto -->
+    <section id="visitanos" class="contenedor">
+        <h2 class="titulo-seccion">Te Esperamos</h2>
+        
+        <div class="info-bloque">
+            <div class="info-col">
+                <h4>Nuestros Horarios</h4>
